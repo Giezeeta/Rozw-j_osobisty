@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>newsletter</title>
+    <link rel="website icon" type="png" href="img\Self-Improvment.png">
+
+    <link rel="stylesheet" href="CSS_test.css">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Cabin:regular,500,600,700,italic,500italic,600italic,700italic);
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Cabin;
+            min-height: 100vh;
+            background: url(img/czarny-abstrakcyjny-obraz-tapety-w-tle.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .wrapper {
+            width: 440px;
+            margin: 50px auto;
+            
+            box-shadow: 0 0 10px #000;
+            position: relative;
+        }
+
+       .back-button {
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            transition: 1s;
+            text-align: center;
+              text-align: center;
+            margin-top: 20px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color .3s;
+           
+        }
+        
+
+        .back-button:hover {
+            opacity: 0.8;
+        }
+
+        form {
+            padding: 40px;
+            font-size: 20px;
+            min-height: 100px;
+            background-position: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .form-box {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .form-box label {
+            display: inline-block;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .form-box input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid rgb(197, 197, 197);
+            border-radius: 5px;
+            color: #000;
+        }
+
+        .form-box.error input {
+            border: 1px solid red;
+            background-color: rgba(0, 137, 250, .1);
+        }
+
+        .form-box .error-text {
+            visibility: hidden;
+            margin: 5px 0 0 10px;
+            font-size: 14px;
+            color: red;
+        }
+
+        .form-box.error .error-text {
+            visibility: visible;
+        }
+
+        .control-buttons {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .send,
+        .clear{
+            display: block;
+            padding: 10px 0;
+            margin-left: 10px;
+            width: 100px;
+            font-size: 18px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color .3s;
+        }
+
+        .send:hover,
+        .clear:hover,
+        .close:hover {
+            background-color: rgb(105, 105, 107);
+        }
+
+        .popup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            top: -500px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 200px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #000;
+            transition: top .5s;
+        }
+
+        .popup p {
+            font-size: 28px;
+            text-align: center;
+            color: #000;
+        }
+
+        .popup button {
+            margin-top: 20px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color .3s;
+        }
+
+        .popup button:hover {
+            background-color: rgb(105, 105, 107);
+        }
+
+        .show-popup {
+            top: 50%;
+        }
+
+        label {
+            font-family: Cabin;
+            color: #fff;
+        }
+       
+        
+    </style>
+</head>
+<body>
+    
+        <a href="Strona_g.html" id="button-81"class="back-button">Powrót</a>
+        
+        <div class="wrapper">
+        <form>
+            
+            <h1>Zapisz się do newslettera!!</h1>
+            <div class="form-box">
+                <label for="username">Imię:</label>
+                <input type="text" id="username" placeholder="Podaj imię użytkownika">
+                <p class="error-text">error</p>
+            </div>
+            <div class="form-box">
+                <label for="email">Adres e-mail:</label>
+                <input type="email" id="email" placeholder="Podaj adres mailowy">
+                <p class="error-text">error</p>
+            </div>
+            <div class="control-buttons">
+                 <button id="button-81" class="clear">Wyczyść</button>
+                <button id="button-81" class="send">Wyślij</button>
+            </div>
+            <div class="popup">
+                <p>Formularz został poprawnie wysłany!</p>
+                <button id="button-81" class="close">Zamknij</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        const username = document.querySelector('#username');
+        const email = document.querySelector('#email');
+        const sendBtn = document.querySelector('.send');
+        const clearBtn = document.querySelector('.clear');
+        const popup = document.querySelector('.popup');
+    
+        const showError = (input, msg) => {
+            const formBox = input.parentElement;
+            const errorMsg = formBox.querySelector('.error-text');
+            formBox.classList.add('error');
+            errorMsg.textContent = msg;
+        }
+    
+        const clearError = (input) => {
+            const formBox = input.parentElement;
+            formBox.classList.remove('error');
+        }
+    
+        const checkForm = input => {
+            input.forEach(el => {
+                if(el.value === ''){
+                    showError(el, el.placeholder)
+                }
+                else {
+                    clearError(el);
+                }
+            })
+        }
+        const checkLength = (input, min) => {
+            if(input.value.length <min){
+                showError(input, input.previousElementSibling.innerText.slice(0,-1)+" Składa się z min."+min+" znaków")
+            }
+        }
+        const checkEmail = email => {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+            if(re.test(email.value)){
+                clearError(email)
+            }
+            else{
+                showError(email, "E-mail jest niepoprawny");
+            }
+        }
+        const checkErrors = () => {
+    const allInputs = document.querySelectorAll('.form-box');
+    let errCount = 0;
+
+    allInputs.forEach(el => {
+        if (el.classList.contains('error')) {
+            errCount++;
+        }
+    });
+
+    if (errCount === 0) {
+        popup.classList.add('show-popup');
+    }
+};
+sendBtn.addEventListener('click', e => {
+    e.preventDefault();
+    checkForm([username, email]);
+    checkLength(username, 3);
+    checkEmail(email);
+    checkErrors();
+});
+
+        clearBtn.addEventListener('click', e=>{
+            e.preventDefault();
+
+            [username, email].forEach(el=>{
+                el.value=''
+            })
+        })
+
+        const closeBtn = document.querySelector('.close');
+        closeBtn.addEventListener('click', () => {
+            popup.classList.remove('show-popup');
+        });
+    </script>
+   
+
+ 
+</body>
+</html>

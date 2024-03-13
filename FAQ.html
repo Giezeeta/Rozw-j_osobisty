@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="website icon" type="png" href="img\Self-Improvment.png">
+    <link rel="stylesheet" href="CSS_test.css">
+</head>
+<body>
+    <div id="Menu">
+        <a href="Strona_g.html" id="logo"><img src="img\Self-Improvment.png"></a>
+        <p id="naglowek">Znajdz odpowiedź na swoje pytania!</p>
+        <nav class="Menu2">
+        <a href="Strona_g.html">Strona Główna</a>
+        <a href="Strona_kursy.html">Kursy</a>
+        <a href="Strona_newsletter.html">Zapisz się do newslettera!!</a>
+      
+        </nav>
+        </div>
+      
+        </head>
+        <body class="body_faq">
+          <header class="header_faq">
+            <h1 class="h1_faq">Najczęściej zadawane pytania przez użytkowników:</h1>
+        </header>
+    
+        <main>
+            <section class="faq">
+                <div class="Wyszukaj">
+                <h1>WYSZUKAJ PYTANIE</h1>
+                <input type="text" id="searchInput" oninput="searchFAQ()" placeholder="Wyszukaj pytanie..." style="width: 300px; height: 40px; font-size: 20px; border-radius: 15px; right:10px ;">
+           </div>
+                <div class="faq-item">
+                    <h3>Czy kursy są dostępne w różnych językach?</h3>
+                    <p>
+                        Tak, niektóre z naszych kursów są dostępne w różnych językach. Sprawdź dostępność języków na stronie danego kursu.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>Jakie metody płatności akceptujecie?</h3>
+                    <p>
+                        Akceptujemy różne metody płatności, w tym płatności kartą kredytową, płatności PayPal oraz przelewy bankowe. Po wyborze kursu i przejściu do procesu płatności, będziesz mógł wybrać preferowaną metodę płatności.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>Czy mogę otrzymać wsparcie techniczne podczas korzystania z kursów?</h3>
+                    <p>
+                        Tak, nasz zespół wsparcia technicznego jest dostępny, aby pomóc Ci w przypadku jakichkolwiek problemów związanych z korzystaniem z kursów. Skontaktuj się z nami, a pomożemy rozwiązać Twoje problemy.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>Czy kursy są aktualizowane regularnie?</h3>
+                    <p>
+                        Tak, staramy się regularnie aktualizować nasze kursy, aby zapewnić najbardziej aktualne i wartościowe treści. Aktualizacje mogą obejmować nowe lekcje, materiały dodatkowe i inne ulepszenia.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>Jakie są wymagania techniczne do korzystania z kursów online?</h3>
+                    <p>
+                        Aby korzystać z naszych kursów online, wymagane jest stabilne połączenie internetowe oraz urządzenie z aktualną przeglądarką internetową. Dodatkowe wymagania techniczne mogą być określone na stronie danego kursu.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>Czy oferujecie możliwość dostępu do kursów offline?</h3>
+                    <p>
+                        Tak, niektóre z naszych kursów oferują możliwość pobrania materiałów na urządzenie i korzystania z nich offline. Sprawdź szczegóły na stronie danego kursu.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>Czy kursy zawierają materiały praktyczne, które pomogą mi w praktycznym zastosowaniu zdobytej wiedzy?</h3>
+                    <p>
+                        Tak, większość naszych kursów zawiera materiały praktyczne, takie jak studia przypadków, zadania domowe, projekty praktyczne itp., które pomogą Ci w praktycznym zastosowaniu zdobytej wiedzy.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3>Czy kursy oferują możliwość konsultacji z instruktorem w razie pytań lub wątpliwości?</h3>
+                    <p>
+                        Tak, w niektórych kursach istnieje możliwość konsultacji z instruktorem poprzez czat, e-mail lub spotkania online. Jest to świetna okazja do uzyskania dodatkowej pomocy i wsparcia.
+                    </p>
+                </div>
+               
+
+            </section>
+        </main>
+    
+        <div class="kontakt">
+          <p style="font-size: 25px; font-weight: 700;">KONTAKT</p>
+          <p>
+              <span style="margin-right: 20px;">
+                  Email: <a href="mailto:d.jaskolski@elodz.edu.pl">d.jaskolski@elodz.edu.pl</a>
+              </span>
+              Numer telefonu (tylko w ważnych sprawach):
+              <a href="tel:+48733361481">+48 733 361 481</a>
+          </p>
+      </div>
+
+      <script>
+        function searchFAQ() {
+            let input, filter, faq, faqItem, h3, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            faq = document.getElementsByClassName("faq-item");
+            for (i = 0; i < faq.length; i++) {
+                faqItem = faq[i].getElementsByTagName("h3")[0];
+                txtValue = faqItem.textContent || faqItem.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    faq[i].style.display = "";
+                } else {
+                    faq[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+    </body>
+    </html>
